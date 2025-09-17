@@ -1,0 +1,11 @@
+CREATE TABLE TBL_CHANNEL (
+    id INTEGER NOT NULL PRIMARY KEY,
+    channel_array TEXT NOT NULL,
+    channel_language TEXT NOT NULL,
+    channel_logo TEXT NOT NULL,
+    channel_name TEXT NOT NULL,
+    channel_number TEXT NOT NULL,
+    genre TEXT NOT NULL,
+    logo TEXT NOT NULL,
+    search_content_name TEXT NOT NULL
+);

@@ -1,0 +1,15 @@
+-- SiInfo.sq
+CREATE TABLE TBL_SI_INFO (
+    si_name TEXT PRIMARY KEY,
+    remaining_days INTEGER NOT NULL DEFAULT 0,
+    si_email TEXT NOT NULL DEFAULT '',
+    owner_email TEXT NOT NULL DEFAULT '',
+    si_address TEXT NOT NULL DEFAULT '',
+    subscription_start_date TEXT NOT NULL DEFAULT '',
+    subscription_end_date TEXT NOT NULL DEFAULT '',
+    distributor_email TEXT NOT NULL DEFAULT '',
+    status TEXT NOT NULL DEFAULT '',
+    payment_status TEXT NOT NULL DEFAULT '',
+    company_name TEXT NOT NULL DEFAULT '',
+    mobile_number TEXT NOT NULL DEFAULT ''
+);

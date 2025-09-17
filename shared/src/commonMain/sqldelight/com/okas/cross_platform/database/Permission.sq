@@ -1,0 +1,6 @@
+-- Permission.sq
+CREATE TABLE TBL_PERMISSION (
+    member_id INTEGER PRIMARY KEY,
+    member_permission_id INTEGER NOT NULL DEFAULT 0,
+    rooms TEXT NOT NULL DEFAULT ''
+);

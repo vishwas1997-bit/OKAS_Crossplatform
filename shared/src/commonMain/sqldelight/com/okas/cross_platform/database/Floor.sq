@@ -1,0 +1,9 @@
+-- Floor.sq
+CREATE TABLE TBL_FLOOR (
+    building TEXT NOT NULL DEFAULT '',
+    building_id TEXT NOT NULL DEFAULT '',
+    floor_id INTEGER PRIMARY KEY,
+    floor_name TEXT NOT NULL DEFAULT '',
+    floor_pos INTEGER NOT NULL DEFAULT 0,
+    floor_type TEXT NOT NULL DEFAULT ''
+);

@@ -1,0 +1,8 @@
+CREATE TABLE TBL_BUILDING (
+    building_id TEXT NOT NULL PRIMARY KEY,
+    building_name TEXT NOT NULL,
+    num_floors TEXT NOT NULL,
+    building_image TEXT NOT NULL,
+    num_users TEXT NOT NULL,
+    building_type TEXT NOT NULL
+);

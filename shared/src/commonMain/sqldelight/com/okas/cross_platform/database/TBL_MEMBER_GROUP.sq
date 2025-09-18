@@ -1,0 +1,29 @@
+CREATE TABLE TBL_MEMBER_GROUP (
+  member_id INTEGER PRIMARY KEY,
+  group_id INTEGER NOT NULL,
+  group_name TEXT NOT NULL,
+  group_device TEXT NOT NULL,
+  group_utility TEXT NOT NULL,
+  group_macro TEXT NOT NULL
+);
+
+insertMemberGroup:
+INSERT OR REPLACE INTO TBL_MEMBER_GROUP (
+  member_id,
+  group_id,
+  group_name,
+  group_device,
+  group_utility,
+  group_macro
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getMemberGroupData:
+SELECT * FROM TBL_MEMBER_GROUP WHERE member_id = ?;

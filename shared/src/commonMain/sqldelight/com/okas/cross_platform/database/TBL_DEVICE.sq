@@ -1,0 +1,62 @@
+CREATE TABLE TBL_DEVICE (
+  _id INTEGER PRIMARY KEY AUTOINCREMENT,
+  device_id TEXT NOT NULL,
+  device_type TEXT NOT NULL,
+  device_name TEXT NOT NULL,
+  device_model TEXT NOT NULL,
+  device_ip TEXT NOT NULL,
+  device_port INTEGER NOT NULL,
+  device_io TEXT NOT NULL,
+  connection_type TEXT NOT NULL,
+  baudrate TEXT NOT NULL,
+  device_group TEXT NOT NULL,
+  okasBox INTEGER NOT NULL,
+  room_id INTEGER NOT NULL,
+  floor_id INTEGER NOT NULL,
+  irName TEXT NOT NULL,
+  connaddr INTEGER NOT NULL,
+  show_device_name TEXT NOT NULL
+);
+
+insertDevice:
+INSERT OR REPLACE INTO TBL_DEVICE (
+  _id,
+  device_id,
+  device_type,
+  device_name,
+  device_model,
+  device_ip,
+  device_port,
+  device_io,
+  connection_type,
+  baudrate,
+  device_group,
+  okasBox,
+  room_id,
+  floor_id,
+  irName,
+  connaddr,
+  show_device_name
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getDeviceEntityList:
+SELECT * FROM TBL_DEVICE;

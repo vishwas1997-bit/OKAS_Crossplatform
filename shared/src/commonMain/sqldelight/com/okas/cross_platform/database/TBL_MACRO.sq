@@ -1,0 +1,26 @@
+CREATE TABLE TBL_MACRO (
+  macro_id INTEGER PRIMARY KEY,
+  macro_name TEXT NOT NULL,
+  macro_type TEXT NOT NULL,
+  room_id INTEGER NOT NULL,
+  icon TEXT NOT NULL
+);
+
+insertMacro:
+INSERT OR REPLACE INTO TBL_MACRO (
+  macro_id,
+  macro_name,
+  macro_type,
+  room_id,
+  icon
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getMacroList:
+SELECT * FROM TBL_MACRO;

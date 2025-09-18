@@ -1,9 +1,0 @@
--- OkasBox.sq
-CREATE TABLE TBL_OKAS (
-    okasbox_id INTEGER PRIMARY KEY,
-    floor_id INTEGER NOT NULL DEFAULT 0,
-    okasboxip TEXT NOT NULL DEFAULT '',
-    okasboxname TEXT NOT NULL DEFAULT '',
-    okasboxtype TEXT NOT NULL DEFAULT '',
-    room_id INTEGER NOT NULL DEFAULT 0
-);

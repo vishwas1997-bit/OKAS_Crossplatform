@@ -6,3 +6,21 @@ CREATE TABLE TBL_BUILDING (
     num_users TEXT NOT NULL,
     building_type TEXT NOT NULL
 );
+
+insertBuildingInfo:
+INSERT OR REPLACE INTO TBL_BUILDING (
+  building_id,
+  building_name,
+  num_floors,
+  building_image,
+  num_users,
+  building_type
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);

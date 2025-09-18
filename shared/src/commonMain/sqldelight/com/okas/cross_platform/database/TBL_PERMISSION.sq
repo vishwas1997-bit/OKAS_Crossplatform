@@ -1,0 +1,23 @@
+CREATE TABLE TBL_PERMISSION (
+  member_id INTEGER PRIMARY KEY,
+  member_permission_id INTEGER NOT NULL,
+  rooms TEXT NOT NULL
+);
+
+insertPermission:
+INSERT OR REPLACE INTO TBL_PERMISSION (
+  member_id,
+  member_permission_id,
+  rooms
+)
+VALUES (
+  ?,
+  ?,
+  ?
+);
+
+getRoomsByMemberId:
+SELECT * FROM TBL_PERMISSION WHERE member_id = ?;
+
+getRoomsMemberWise:
+SELECT * FROM TBL_PERMISSION WHERE member_id = ?;

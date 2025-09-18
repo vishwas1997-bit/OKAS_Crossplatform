@@ -1,0 +1,36 @@
+CREATE TABLE TBL_UTILITY_PARAM (
+  configure_id TEXT NOT NULL PRIMARY KEY,
+  room_id INTEGER NOT NULL,
+  device_type TEXT NOT NULL,
+  platform TEXT NOT NULL,
+  device INTEGER NOT NULL,
+  light_type TEXT NOT NULL,
+  domain TEXT NOT NULL
+);
+
+insertUtilityParam:
+INSERT OR REPLACE INTO TBL_UTILITY_PARAM (
+  configure_id, room_id, device_type, platform, device, light_type, domain
+)
+VALUES (?, ?, ?, ?, ?, ?, ?);
+
+getBuildingDeviceList:
+SELECT * FROM TBL_UTILITY_PARAM;
+
+getUtilityParamById:
+SELECT * FROM TBL_UTILITY_PARAM WHERE configure_id = ?;
+
+getUtilityParamsByRoomId:
+SELECT * FROM TBL_UTILITY_PARAM WHERE room_id = ?;
+
+getUtilityParamsByDeviceType:
+SELECT * FROM TBL_UTILITY_PARAM WHERE device_type = ?;
+
+getUtilityParamsByDomain:
+SELECT * FROM TBL_UTILITY_PARAM WHERE domain = ?;
+
+deleteAllUtilityParams:
+DELETE FROM TBL_UTILITY_PARAM;
+
+deleteUtilityParamById:
+DELETE FROM TBL_UTILITY_PARAM WHERE configure_id = ?;

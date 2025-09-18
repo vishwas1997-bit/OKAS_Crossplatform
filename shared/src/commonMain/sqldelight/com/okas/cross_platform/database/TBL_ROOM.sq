@@ -1,0 +1,48 @@
+CREATE TABLE TBL_ROOM (
+  room_id INTEGER PRIMARY KEY,
+  room_name TEXT NOT NULL,
+  floor INTEGER NOT NULL,
+  room_image TEXT NOT NULL,
+  subroom INTEGER,
+  room_type TEXT NOT NULL,
+  floor_id INTEGER NOT NULL,
+  room_image_path TEXT NOT NULL
+);
+
+insertRoom:
+INSERT OR REPLACE INTO TBL_ROOM (
+  room_id,
+  room_name,
+  floor,
+  room_image,
+  subroom,
+  room_type,
+  floor_id,
+  room_image_path
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getAllSubRooms:
+SELECT * FROM TBL_ROOM WHERE subroom = ?;
+
+getRoomData:
+SELECT * FROM TBL_ROOM WHERE room_id = ?;
+
+getRoomsByDeviceAndState:
+SELECT * FROM TBL_ROOM
+WHERE room_id IN (
+    SELECT room_id FROM TBL_DEVICE_LIST
+    WHERE device_name IN (:deviceName) AND state = :state
+);
+
+getAllRooms:
+SELECT * FROM TBL_ROOM;

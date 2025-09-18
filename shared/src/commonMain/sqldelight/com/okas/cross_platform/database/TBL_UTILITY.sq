@@ -1,0 +1,35 @@
+CREATE TABLE TBL_UTILITY (
+  device_id TEXT NOT NULL PRIMARY KEY,
+  baudrate TEXT NOT NULL DEFAULT '',
+  building_id TEXT NOT NULL DEFAULT '',
+  connection_type TEXT NOT NULL DEFAULT '',
+  device_group TEXT NOT NULL DEFAULT '',
+  device_type TEXT NOT NULL DEFAULT '',
+  device_name TEXT NOT NULL DEFAULT '',
+  device_model TEXT NOT NULL DEFAULT '',
+  device_ip TEXT NOT NULL DEFAULT '',
+  nas_path TEXT NOT NULL DEFAULT '',
+  device_port INTEGER NOT NULL DEFAULT 0,
+  password TEXT NOT NULL DEFAULT '',
+  user TEXT NOT NULL DEFAULT ''
+);
+
+insertUtility:
+INSERT OR REPLACE INTO TBL_UTILITY (
+  device_id, baudrate, building_id, connection_type, device_group,
+  device_type, device_name, device_model, device_ip, nas_path,
+  device_port, password, user
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+getUtilityDeviceList:
+SELECT * FROM TBL_UTILITY;
+
+getUtilityDeviceById:
+SELECT * FROM TBL_UTILITY WHERE device_id = ?;
+
+deleteAllUtilityDevices:
+DELETE FROM TBL_UTILITY;
+
+deleteUtilityDeviceById:
+DELETE FROM TBL_UTILITY WHERE device_id = ?;

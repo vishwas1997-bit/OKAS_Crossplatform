@@ -1,0 +1,56 @@
+CREATE TABLE TBL_MEMBER (
+  member_id INTEGER PRIMARY KEY,
+  member_name TEXT NOT NULL,
+  member_nickname TEXT NOT NULL,
+  member_dob TEXT NOT NULL,
+  member_phone TEXT NOT NULL,
+  member_gender TEXT NOT NULL,
+  remote_access INTEGER NOT NULL,
+  member_email TEXT NOT NULL,
+  member_password TEXT NOT NULL,
+  member_image TEXT NOT NULL,
+  member_type TEXT NOT NULL,
+  member_language TEXT NOT NULL,
+  member_history TEXT NOT NULL,
+  member_image_path TEXT NOT NULL
+);
+
+insertMember:
+INSERT OR REPLACE INTO TBL_MEMBER (
+  member_id,
+  member_name,
+  member_nickname,
+  member_dob,
+  member_phone,
+  member_gender,
+  remote_access,
+  member_email,
+  member_password,
+  member_image,
+  member_type,
+  member_language,
+  member_history,
+  member_image_path
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getMemberById:
+SELECT * FROM TBL_MEMBER WHERE member_id = ?;
+
+getMembersList:
+SELECT * FROM TBL_MEMBER;

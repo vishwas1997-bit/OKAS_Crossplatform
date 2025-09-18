@@ -1,5 +1,0 @@
--- RoomStatus.sq
-CREATE TABLE TBL_ROOM_STATUS (
-    room_id INTEGER PRIMARY KEY,
-    is_room_off INTEGER NOT NULL DEFAULT 0
-);

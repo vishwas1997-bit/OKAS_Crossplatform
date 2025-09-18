@@ -1,0 +1,38 @@
+CREATE TABLE TBL_CAMERA_PARAMS (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  camera_url TEXT NOT NULL,
+  device_ip TEXT NOT NULL,
+  device_name TEXT NOT NULL,
+  device_type TEXT NOT NULL,
+  name TEXT NOT NULL,
+  password TEXT NOT NULL,
+  username TEXT NOT NULL,
+  thumbnail_path TEXT NOT NULL
+);
+
+insertCamera:
+INSERT OR REPLACE INTO TBL_CAMERA_PARAMS (
+  id,
+  camera_url,
+  device_ip,
+  device_name,
+  device_type,
+  name,
+  password,
+  username,
+  thumbnail_path
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getCameraList:
+SELECT * FROM TBL_CAMERA_PARAMS;

@@ -1,0 +1,23 @@
+CREATE TABLE TBL_MASTER_BOX (
+  okasbox_id INTEGER PRIMARY KEY,
+  okasboxname TEXT NOT NULL,
+  okasboxtype TEXT NOT NULL,
+  okasboxip TEXT NOT NULL,
+  building_id TEXT NOT NULL
+);
+
+insertMasterBox:
+INSERT OR REPLACE INTO TBL_MASTER_BOX (
+  okasbox_id,
+  okasboxname,
+  okasboxtype,
+  okasboxip,
+  building_id
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);

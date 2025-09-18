@@ -1,0 +1,47 @@
+CREATE TABLE TBL_CONFIG_PARAMS (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  thermostat_name TEXT NOT NULL,
+  camera_ip TEXT NOT NULL,
+  camera_name TEXT NOT NULL,
+  device_name TEXT NOT NULL,
+  input_port TEXT NOT NULL,
+  name TEXT NOT NULL,
+  unit_id TEXT NOT NULL,
+  valueLift TEXT NOT NULL,
+  configure_id TEXT NOT NULL,
+  room_id INTEGER NOT NULL,
+  irName TEXT NOT NULL,
+  connaddr INTEGER NOT NULL
+);
+
+insertConfigParam:
+INSERT OR REPLACE INTO TBL_CONFIG_PARAMS (
+  id,
+  thermostat_name,
+  camera_ip,
+  camera_name,
+  device_name,
+  input_port,
+  name,
+  unit_id,
+  valueLift,
+  configure_id,
+  room_id,
+  irName,
+  connaddr
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);

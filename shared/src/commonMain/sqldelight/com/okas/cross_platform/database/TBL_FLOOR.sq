@@ -1,0 +1,29 @@
+CREATE TABLE TBL_FLOOR (
+  building TEXT NOT NULL,
+  building_id TEXT NOT NULL,
+  floor_id INTEGER PRIMARY KEY,
+  floor_name TEXT NOT NULL,
+  floor_pos INTEGER NOT NULL,
+  floor_type TEXT NOT NULL
+);
+
+insertFloor:
+INSERT OR REPLACE INTO TBL_FLOOR (
+  building,
+  building_id,
+  floor_id,
+  floor_name,
+  floor_pos,
+  floor_type
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getFloors:
+SELECT * FROM TBL_FLOOR WHERE floor_id IN (:floorIdList);

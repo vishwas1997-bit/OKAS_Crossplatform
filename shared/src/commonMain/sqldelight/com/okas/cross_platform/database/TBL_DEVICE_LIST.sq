@@ -1,0 +1,39 @@
+CREATE TABLE TBL_DEVICE_LIST (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    device_id TEXT NOT NULL DEFAULT '',
+    device_name TEXT NOT NULL DEFAULT '',
+    device_type TEXT NOT NULL DEFAULT '',
+    input_device_name TEXT NOT NULL DEFAULT '',
+    input_type TEXT NOT NULL DEFAULT '',
+    room_id INTEGER NOT NULL DEFAULT 0,
+    state TEXT NOT NULL DEFAULT ''
+);
+
+insertDeviceList:
+INSERT OR IGNORE INTO TBL_DEVICE_LIST (
+    device_id,
+    device_name,
+    device_type,
+    input_device_name,
+    input_type,
+    room_id,
+    state
+)
+VALUES (
+    ?,
+    ?,
+    ?,
+    ?,
+    ?,
+    ?,
+    ?
+);
+
+getDeviceListByRoomId:
+SELECT * FROM TBL_DEVICE_LIST WHERE room_id = ?;
+
+getAllDeviceList:
+SELECT * FROM TBL_DEVICE_LIST;
+
+deleteDeviceStatus:
+DELETE FROM TBL_DEVICE_LIST;

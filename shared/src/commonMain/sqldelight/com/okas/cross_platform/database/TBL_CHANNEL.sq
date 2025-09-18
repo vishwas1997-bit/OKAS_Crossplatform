@@ -1,0 +1,44 @@
+CREATE TABLE TBL_CHANNEL (
+  id INTEGER PRIMARY KEY,
+  channel_array TEXT NOT NULL,
+  channel_language TEXT NOT NULL,
+  channel_logo TEXT NOT NULL,
+  channel_name TEXT NOT NULL,
+  channel_number TEXT NOT NULL,
+  genre TEXT NOT NULL,
+  logo TEXT NOT NULL,
+  search_content_name TEXT NOT NULL
+);
+
+insertChannelData:
+INSERT OR REPLACE INTO TBL_CHANNEL (
+  id,
+  channel_array,
+  channel_language,
+  channel_logo,
+  channel_name,
+  channel_number,
+  genre,
+  logo,
+  search_content_name
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getAllChannel:
+SELECT * FROM TBL_CHANNEL ORDER BY genre ASC;
+
+searchChannel:
+SELECT * FROM TBL_CHANNEL
+WHERE search_content_name LIKE '%' || ? || '%'
+AND channel_language IN (:languageArray)
+ORDER BY channel_name ASC;

@@ -1,0 +1,29 @@
+CREATE TABLE TBL_IOS_PARAMS (
+  configure_id TEXT PRIMARY KEY,
+  floor_id INTEGER NOT NULL,
+  room_id INTEGER NOT NULL,
+  type TEXT NOT NULL,
+  xpos REAL,
+  ypos REAL
+);
+
+insertIosParam:
+INSERT OR REPLACE INTO TBL_IOS_PARAMS (
+  configure_id,
+  floor_id,
+  room_id,
+  type,
+  xpos,
+  ypos
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getCurtainData:
+SELECT * FROM TBL_IOS_PARAMS WHERE configure_id = ?;

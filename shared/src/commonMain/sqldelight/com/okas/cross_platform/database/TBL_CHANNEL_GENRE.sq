@@ -1,0 +1,20 @@
+CREATE TABLE TBL_CHANNEL_GENRE (
+  channel_genre_name TEXT PRIMARY KEY,
+  channel_genre_id INTEGER NOT NULL,
+  channel_genre_language TEXT NOT NULL
+);
+
+insertChannelGenre:
+INSERT OR REPLACE INTO TBL_CHANNEL_GENRE (
+  channel_genre_name,
+  channel_genre_id,
+  channel_genre_language
+)
+VALUES (
+  ?,
+  ?,
+  ?
+);
+
+getAllChannelGenre:
+SELECT * FROM TBL_CHANNEL_GENRE ORDER BY channel_genre_name ASC;

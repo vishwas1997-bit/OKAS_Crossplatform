@@ -1,0 +1,26 @@
+CREATE TABLE TBL_OKAS (
+  okasbox_id INTEGER PRIMARY KEY,
+  floor_id INTEGER NOT NULL,
+  okasboxip TEXT NOT NULL,
+  okasboxname TEXT NOT NULL,
+  okasboxtype TEXT NOT NULL,
+  room_id INTEGER NOT NULL
+);
+
+insertOkasBox:
+INSERT OR REPLACE INTO TBL_OKAS (
+  okasbox_id,
+  floor_id,
+  okasboxip,
+  okasboxname,
+  okasboxtype,
+  room_id
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);

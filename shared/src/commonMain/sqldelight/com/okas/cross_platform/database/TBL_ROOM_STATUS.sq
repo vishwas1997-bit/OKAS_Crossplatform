@@ -1,0 +1,17 @@
+CREATE TABLE TBL_ROOM_STATUS (
+  room_id INTEGER NOT NULL PRIMARY KEY,
+  is_room_off INTEGER NOT NULL
+);
+
+insertRoomStatus:
+INSERT OR REPLACE INTO TBL_ROOM_STATUS (room_id, is_room_off)
+VALUES (?, ?);
+
+deleteRoomStatus:
+DELETE FROM TBL_ROOM_STATUS;
+
+getAllRoomStatus:
+SELECT * FROM TBL_ROOM_STATUS;
+
+getRoomStatusById:
+SELECT * FROM TBL_ROOM_STATUS WHERE room_id = ?;

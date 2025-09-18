@@ -1,0 +1,31 @@
+CREATE TABLE TBL_SI_INFO (
+  si_name TEXT NOT NULL PRIMARY KEY,
+  remaining_days INTEGER NOT NULL DEFAULT 0,
+  si_email TEXT NOT NULL DEFAULT '',
+  owner_email TEXT NOT NULL DEFAULT '',
+  si_address TEXT NOT NULL DEFAULT '',
+  subscription_start_date TEXT NOT NULL DEFAULT '',
+  subscription_end_date TEXT NOT NULL DEFAULT '',
+  distributor_email TEXT NOT NULL DEFAULT '',
+  status TEXT NOT NULL DEFAULT '',
+  payment_status TEXT NOT NULL DEFAULT '',
+  company_name TEXT NOT NULL DEFAULT '',
+  mobile_number TEXT NOT NULL DEFAULT ''
+);
+
+insertSiInfo:
+INSERT OR REPLACE INTO TBL_SI_INFO (
+  si_name, remaining_days, si_email, owner_email, si_address,
+  subscription_start_date, subscription_end_date, distributor_email,
+  status, payment_status, company_name, mobile_number
+)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+getSiInfo:
+SELECT * FROM TBL_SI_INFO;
+
+deleteAllSiInfo:
+DELETE FROM TBL_SI_INFO;
+
+getSiInfoByName:
+SELECT * FROM TBL_SI_INFO WHERE si_name = ?;

@@ -1,0 +1,30 @@
+-- src/commonMain/sqldelight/com/yourpackage/database/Thermostat.sq
+CREATE TABLE TBL_Thermostat (
+  device_id TEXT NOT NULL PRIMARY KEY,
+  domain TEXT NOT NULL,
+  name TEXT NOT NULL,
+  room_id INTEGER NOT NULL
+);
+
+insertThermostat:
+INSERT OR REPLACE INTO TBL_Thermostat (device_id, domain, name, room_id)
+VALUES (?, ?, ?, ?);
+
+insertThermostatList:
+INSERT OR REPLACE INTO TBL_Thermostat (device_id, domain, name, room_id)
+VALUES ?;
+
+getAllThermostats:
+SELECT * FROM TBL_Thermostat;
+
+getThermostatById:
+SELECT * FROM TBL_Thermostat WHERE device_id = ?;
+
+getThermostatsByRoomId:
+SELECT * FROM TBL_Thermostat WHERE room_id = ?;
+
+deleteAllThermostats:
+DELETE FROM TBL_Thermostat;
+
+deleteThermostatById:
+DELETE FROM TBL_Thermostat WHERE device_id = ?;

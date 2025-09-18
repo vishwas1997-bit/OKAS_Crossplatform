@@ -1,5 +1,0 @@
-CREATE TABLE TBL_CHANNEL_GENRE (
-    channel_genre_name TEXT NOT NULL PRIMARY KEY,
-    channel_genre_id INTEGER NOT NULL,
-    channel_genre_language TEXT NOT NULL
-);

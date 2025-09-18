@@ -1,8 +1,0 @@
--- MasterBox.sq
-CREATE TABLE TBL_MASTER_BOX (
-    okasbox_id INTEGER PRIMARY KEY,
-    okasboxname TEXT NOT NULL DEFAULT '',
-    okasboxtype TEXT NOT NULL DEFAULT '',
-    okasboxip TEXT NOT NULL DEFAULT '',
-    building_id TEXT NOT NULL DEFAULT ''
-);

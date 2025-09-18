@@ -1,8 +1,0 @@
--- Macro.sq
-CREATE TABLE TBL_MACRO (
-    macro_id INTEGER PRIMARY KEY,
-    macro_name TEXT NOT NULL DEFAULT '',
-    macro_type TEXT NOT NULL DEFAULT '',
-    room_id INTEGER NOT NULL DEFAULT 0,
-    icon TEXT NOT NULL DEFAULT ''
-);

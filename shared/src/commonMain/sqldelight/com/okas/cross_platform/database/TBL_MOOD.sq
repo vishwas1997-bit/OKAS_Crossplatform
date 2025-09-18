@@ -1,0 +1,53 @@
+CREATE TABLE TBL_MOOD (
+  device_name TEXT NOT NULL,
+  domain TEXT NOT NULL,
+  floor_id INTEGER NOT NULL,
+  hideMacro INTEGER NOT NULL,
+  mood_circuit_id TEXT NOT NULL,
+  mood_id TEXT PRIMARY KEY,
+  mood_image TEXT NOT NULL,
+  mood_name TEXT NOT NULL,
+  hideMood INTEGER NOT NULL,
+  mood_type TEXT NOT NULL,
+  position INTEGER NOT NULL,
+  room_id INTEGER NOT NULL
+);
+
+insertMood:
+INSERT OR REPLACE INTO TBL_MOOD (
+  device_name,
+  domain,
+  floor_id,
+  hideMacro,
+  mood_circuit_id,
+  mood_id,
+  mood_image,
+  mood_name,
+  hideMood,
+  mood_type,
+  position,
+  room_id
+)
+VALUES (
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?,
+  ?
+);
+
+getMoodsByRoomIds:
+SELECT * FROM TBL_MOOD WHERE room_id IN (:roomIds);
+
+getAllMoods:
+SELECT * FROM TBL_MOOD;
+
+getMoodsByRoomId:
+SELECT * FROM TBL_MOOD WHERE room_id = ?;

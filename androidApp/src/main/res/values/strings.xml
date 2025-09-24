@@ -7,4 +7,9 @@
     <string name="phone_number">Phone Number</string>
     <string name="enter_your_phone_number_or_email">Enter your phone number or email\n</string>
     <string name="log_in">Log in</string>
+    <string name="otp_verification">OTP verification</string>
+    <string name="we_ve_sent_a_verification_code"><![CDATA[![CDATA[We’ve sent a verification code to +91XXXXXXX979 & john@gmail.com]]]]></string>
+    <string name="continue_button">Continue</string>
+    <string name="choose_your_building">Choose Your Building\n</string>
+    <string name="pick_a_building_to_start_managing_your_devices">Pick a building to start managing your devices</string>
 </resources>

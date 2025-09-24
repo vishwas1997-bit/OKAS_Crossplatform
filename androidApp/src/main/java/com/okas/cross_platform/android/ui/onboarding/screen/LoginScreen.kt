@@ -86,142 +86,110 @@ fun LoginScreen(
                     .padding(16.dp)
             )
 
-            Column(
+            Box(
                 modifier = Modifier
                     .wrapContentSize()
                     .topBorder(stroke = 1.dp, color = Color(0XFFDDDDDD), cornerRadius = 24.dp)
+                    .clip(
+                        RoundedCornerShape(
+                            topEnd = 24.dp,
+                            topStart = 24.dp,
+                            bottomStart = 0.dp,
+                            bottomEnd = 0.dp
+                        )
+                    )
             ) {
-
-                Spacer(modifier = Modifier.height(16.dp))
-
-                // 🔹 Title
-                Text(
-                    text = stringResource(R.string.log_in),
-                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
-                    fontSize = 22.sp,
-                    color = Color.White,
-                    fontFamily = FontFamily(Font(R.font.proxima_nova_semibold))
+                Box(
+                    modifier = Modifier
+                        .matchParentSize()
+                        .blur(100.dp)
+                        .background(Color.White.copy(alpha = 0.10f))
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
-
-                // 🔹 Subtitle
-                Text(
-                    text = stringResource(R.string.enter_your_phone_number_or_email),
-                    fontSize = 12.sp,
-                    modifier = Modifier.padding(horizontal = 16.dp),
-                    color = Color.White.copy(alpha = 0.8f),
-                    fontFamily = FontFamily(Font(R.font.proxima_nova_light))
-                )
-
-                Spacer(modifier = Modifier.height(24.dp))
-
-                // 🔹 Tabs (Email / Phone)
-                var selectedTab by remember { mutableStateOf(0) }
-                val tabs = listOf(
-                    stringResource(R.string.email_address),
-                    stringResource(R.string.phone_number)
-                )
-
-
-                TabRow(modifier = Modifier
-                    .padding(horizontal = 16.dp)
-                    .clip(RoundedCornerShape(16.dp)),
-                    selectedTabIndex = selectedTab,
-                    containerColor = Color(0x26FFFFFF),
-                    indicator = { tabPositions ->
-                        // Custom indicator with rounded background
-                        Box(
-                            modifier = Modifier
-                                .tabIndicatorOffset(tabPositions[selectedTab])
-                                .fillMaxHeight()
-                                .background(
-                                    color = Color.Blue, // selected tab color
-                                    shape = RoundedCornerShape(16.dp)
-                                )
-                        )
-                    },
-                    divider = {}
+                Column(
+                    modifier = Modifier
+                        .wrapContentSize()
                 ) {
-                    tabs.forEachIndexed { index, title ->
-                        Tab(
-                            selected = selectedTab == index,
-                            onClick = { selectedTab = index },
-                            text = { Text(title, color = Color.White) }
-                        )
-                    }
-                }
 
-                Spacer(modifier = Modifier.height(20.dp))
+                    Spacer(modifier = Modifier.height(16.dp))
 
-                if (selectedTab == 0) {
-                    TextField(
-                        value = "",
-                        onValueChange = {},
-                        placeholder = { Text(stringResource(R.string.email_address)) },
-                        leadingIcon = {
-                            Icon(
-                                painter = painterResource(R.drawable.ic_email),
-                                contentDescription = null
+                    // 🔹 Title
+                    Text(
+                        text = stringResource(R.string.log_in),
+                        modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+                        fontSize = 22.sp,
+                        color = Color.White,
+                        fontFamily = FontFamily(Font(R.font.proxima_nova_semibold))
+                    )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    // 🔹 Subtitle
+                    Text(
+                        text = stringResource(R.string.enter_your_phone_number_or_email),
+                        fontSize = 12.sp,
+                        modifier = Modifier.padding(horizontal = 16.dp),
+                        color = Color.White.copy(alpha = 0.8f),
+                        fontFamily = FontFamily(Font(R.font.proxima_nova_light))
+                    )
+
+                    Spacer(modifier = Modifier.height(24.dp))
+
+                    // 🔹 Tabs (Email / Phone)
+                    var selectedTab by remember { mutableStateOf(0) }
+                    val tabs = listOf(
+                        stringResource(R.string.email_address),
+                        stringResource(R.string.phone_number)
+                    )
+
+
+                    TabRow(
+                        modifier = Modifier
+                            .padding(horizontal = 16.dp)
+                            .clip(RoundedCornerShape(16.dp)),
+                        selectedTabIndex = selectedTab,
+                        containerColor = Color(0x26FFFFFF),
+                        indicator = { tabPositions ->
+                            // Custom indicator with rounded background
+                            Box(
+                                modifier = Modifier
+                                    .tabIndicatorOffset(tabPositions[selectedTab])
+                                    .fillMaxHeight()
+                                    .background(
+                                        color = Color.Blue, // selected tab color
+                                        shape = RoundedCornerShape(16.dp)
+                                    )
                             )
                         },
-                        singleLine = true,
-                        textStyle = TextStyle(
-                            fontFamily = FontFamily(Font(R.font.proxima_nova_light)),
-                            fontSize = 16.sp
-                        ),
-                        colors = TextFieldDefaults.colors(
-                            focusedContainerColor = Color.Transparent,
-                            unfocusedContainerColor = Color.Transparent,
-                            disabledContainerColor = Color.Transparent,
-                            errorContainerColor = Color.Transparent,
-                            focusedIndicatorColor = Color.Transparent,
-                            unfocusedIndicatorColor = Color.Transparent,
-                            disabledIndicatorColor = Color.Transparent,
-                            errorIndicatorColor = Color.Transparent
-                        ),
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp) // margin
-                            .background(
-                                color = Color.White.copy(alpha = 0.8f),
-                                shape = RoundedCornerShape(16.dp)
-                            )
-                    )
-                } else {
-                    // 🔹 Phone Number Row
-                    Row(
-                        verticalAlignment = Alignment.CenterVertically,
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(horizontal = 16.dp)
+                        divider = {}
                     ) {
-                        // Replace CountryCodePicker with your own dropdown (Compose doesn’t support CCP directly)
-                        Text(
-                            text = "+91",
-                            modifier = Modifier
-                                .background(
-                                    Color.White.copy(alpha = 0.8f),
-                                    RoundedCornerShape(8.dp)
-                                )
-                                .padding(24.dp),
-                            color = Color.White
-                        )
+                        tabs.forEachIndexed { index, title ->
+                            Tab(
+                                selected = selectedTab == index,
+                                onClick = { selectedTab = index },
+                                text = { Text(title, color = Color.White) }
+                            )
+                        }
+                    }
 
-                        Spacer(modifier = Modifier.width(20.dp))
+                    Spacer(modifier = Modifier.height(20.dp))
 
+                    if (selectedTab == 0) {
                         TextField(
                             value = "",
                             onValueChange = {},
-                            placeholder = { Text("Phone number") },
-                            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                            placeholder = { Text(stringResource(R.string.email_address)) },
+                            leadingIcon = {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_email),
+                                    contentDescription = null
+                                )
+                            },
                             singleLine = true,
-                            modifier = Modifier
-                                .weight(1f)
-                                .background(
-                                    Color.White.copy(alpha = 0.8f),
-                                    RoundedCornerShape(16.dp)
-                                ),
+                            textStyle = TextStyle(
+                                fontFamily = FontFamily(Font(R.font.proxima_nova_light)),
+                                fontSize = 16.sp
+                            ),
                             colors = TextFieldDefaults.colors(
                                 focusedContainerColor = Color.Transparent,
                                 unfocusedContainerColor = Color.Transparent,
@@ -232,65 +200,120 @@ fun LoginScreen(
                                 disabledIndicatorColor = Color.Transparent,
                                 errorIndicatorColor = Color.Transparent
                             ),
-                            textStyle = TextStyle(
-                                fontFamily = FontFamily(Font(R.font.proxima_nova_light)),
-                                fontSize = 16.sp
-                            )
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp) // margin
+                                .background(
+                                    color = Color.White.copy(alpha = 0.8f),
+                                    shape = RoundedCornerShape(16.dp)
+                                )
                         )
+                    } else {
+                        // 🔹 Phone Number Row
+                        Row(
+                            verticalAlignment = Alignment.CenterVertically,
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .padding(horizontal = 16.dp)
+                        ) {
+                            // Replace CountryCodePicker with your own dropdown (Compose doesn’t support CCP directly)
+                            Text(
+                                text = "+91",
+                                modifier = Modifier
+                                    .background(
+                                        Color.White.copy(alpha = 0.8f),
+                                        RoundedCornerShape(8.dp)
+                                    )
+                                    .padding(16.dp),
+                                color = Color.White
+                            )
+
+                            Spacer(modifier = Modifier.width(20.dp))
+
+                            TextField(
+                                value = "",
+                                onValueChange = {},
+                                placeholder = { Text("Phone number") },
+                                keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
+                                singleLine = true,
+                                modifier = Modifier
+                                    .weight(1f)
+                                    .background(
+                                        Color.White.copy(alpha = 0.8f),
+                                        RoundedCornerShape(16.dp)
+                                    ),
+                                colors = TextFieldDefaults.colors(
+                                    focusedContainerColor = Color.Transparent,
+                                    unfocusedContainerColor = Color.Transparent,
+                                    disabledContainerColor = Color.Transparent,
+                                    errorContainerColor = Color.Transparent,
+                                    focusedIndicatorColor = Color.Transparent,
+                                    unfocusedIndicatorColor = Color.Transparent,
+                                    disabledIndicatorColor = Color.Transparent,
+                                    errorIndicatorColor = Color.Transparent
+                                ),
+                                textStyle = TextStyle(
+                                    fontFamily = FontFamily(Font(R.font.proxima_nova_light)),
+                                    fontSize = 16.sp
+                                )
+                            )
+                        }
                     }
-                }
 
-                Spacer(modifier = Modifier.height(120.dp))
+                    Spacer(modifier = Modifier.height(120.dp))
 
-                // 🔹 Checkbox + Terms
-                Row(
-                    verticalAlignment = Alignment.CenterVertically,
-                    modifier = Modifier.padding(horizontal = 16.dp)
-                ) {
-                    var checked by remember { mutableStateOf(false) }
-                    Box(
-                        modifier = Modifier
-                            .size(32.dp)
-                            .background(Color.White.copy(alpha = 0.1f), CircleShape),
-                        contentAlignment = Alignment.Center
+                    // 🔹 Checkbox + Terms
+                    Row(
+                        verticalAlignment = Alignment.CenterVertically,
+                        modifier = Modifier.padding(horizontal = 16.dp)
                     ) {
-                        Checkbox(
-                            checked = checked,
-                            onCheckedChange = { checked = it },
-                            colors = CheckboxDefaults.colors(
-                                checkedColor = Color.White,
-                                uncheckedColor = Color.Transparent,
-                                checkmarkColor = Color.Black
+                        var checked by remember { mutableStateOf(false) }
+                        Box(
+                            modifier = Modifier
+                                .size(32.dp)
+                                .background(Color.White.copy(alpha = 0.1f), CircleShape),
+                            contentAlignment = Alignment.Center
+                        ) {
+                            Checkbox(
+                                checked = checked,
+                                onCheckedChange = { checked = it },
+                                colors = CheckboxDefaults.colors(
+                                    checkedColor = Color.White,
+                                    uncheckedColor = Color.Transparent,
+                                    checkmarkColor = Color.Black
+                                )
                             )
+                        }
+                        Spacer(modifier = Modifier.width(8.dp))
+                        Text(
+                            text = "Please agree to the terms of service.",
+                            fontSize = 14.sp,
+                            color = Color.White,
+                            fontFamily = FontFamily(Font(R.font.proxima_nova_regular))
                         )
                     }
-                    Spacer(modifier = Modifier.width(8.dp))
-                    Text(
-                        text = "Please agree to the terms of service.",
-                        fontSize = 14.sp,
-                        color = Color.White,
-                        fontFamily = FontFamily(Font(R.font.proxima_nova_regular))
-                    )
-                }
 
-                Spacer(modifier = Modifier.height(24.dp))
+                    Spacer(modifier = Modifier.height(24.dp))
 
-                // 🔹 Button
-                Button(
-                    onClick = onOtpClick,
-                    modifier = Modifier.fillMaxWidth().padding(bottom = 32.dp, start = 16.dp, end = 16.dp),
-                    colors = ButtonDefaults.buttonColors(
-                        containerColor = Color.White,
-                        contentColor = Color(0xFF0F6774)
-                    ),
-                    shape = RoundedCornerShape(16.dp)
-                ) {
-                    Text(
-                        text = stringResource(R.string.get_otp),
-                        fontSize = 20.sp,
-                        color = Color(0XFF0F6774),
-                        fontFamily = FontFamily(Font(R.font.proxima_nova_semibold))
-                    )
+                    // 🔹 Button
+                    Button(
+                        onClick = onOtpClick,
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 32.dp, start = 16.dp, end = 16.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = Color.White,
+                            contentColor = Color(0xFF0F6774)
+                        ),
+                        shape = RoundedCornerShape(16.dp)
+                    ) {
+                        Text(
+                            text = stringResource(R.string.get_otp),
+                            fontSize = 20.sp,
+                            color = Color(0XFF0F6774),
+                            fontFamily = FontFamily(Font(R.font.proxima_nova_semibold))
+                        )
+                    }
                 }
             }
         }

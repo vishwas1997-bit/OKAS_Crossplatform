@@ -5,8 +5,10 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.composable
 import androidx.navigation.navigation
 import com.okas.cross_platform.android.ui.navigation.Graph
+import com.okas.cross_platform.android.ui.onboarding.screen.BuildingSelectionScreen
 import com.okas.cross_platform.android.ui.onboarding.screen.GetStartedScreen
 import com.okas.cross_platform.android.ui.onboarding.screen.LoginScreen
+import com.okas.cross_platform.android.ui.onboarding.screen.OtpVerificationScreen
 import com.okas.cross_platform.android.ui.onboarding.screen.SplashScreen
 
 fun NavGraphBuilder.authNavGraph(
@@ -41,24 +43,15 @@ fun NavGraphBuilder.authNavGraph(
         }
 
         composable(AuthScreen.Otp.route) {
-            // Uncomment and update when ready
-            /* OtpScreen(
-                onBuildingMemberNavigate = {
-                    rootNavController.navigate(AuthScreen.BuildingMember.route) {
-                        popUpTo(AuthScreen.Login.route) { inclusive = false }
-                    }
-                }
-            ) */
+            OtpVerificationScreen {
+                rootNavController.navigate(AuthScreen.BuildingMember.route)
+            }
         }
 
         composable(AuthScreen.BuildingMember.route) {
-            // Uncomment and update when ready
-            /* BuildingMemberScreen(
-                onAuthFinished = {
-                    // Call the callback to navigate to HOME
-                    onNavigateToHome()
-                }
-            ) */
+            BuildingSelectionScreen(buildings = emptyList()) {
+                onNavigateToHome()
+            }
         }
     }
 }

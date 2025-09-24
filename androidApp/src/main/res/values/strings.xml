@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="welcome_to_experience_control_with_exclusivity">Welcome to experience\\ncontrol with exclusivity</string>
+    <string name="get_started">Get Started</string>
+    <string name="get_otp">Get OTP</string>
+    <string name="email_address">Email Address</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="enter_your_phone_number_or_email">Enter your phone number or email\n</string>
+    <string name="log_in">Log in</string>
+</resources>
